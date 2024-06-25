@@ -1,0 +1,32 @@
+version: '3'
+services:
+  node:
+    image: node:20.12.1-alpine
+    container_name: saga_user_node_local
+    tty: true
+    volumes:
+      - ./:/work
+    ports:
+      - 30181:${APP_PORT}
+    environment:
+      - HOST=0.0.0.0
+    working_dir: /work
+    networks:
+      - nest-saga
+  db:
+    image: postgres:14
+    container_name: saga_user_postgres_local
+    environment:
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_DB=${DB_DATABASE}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ./docker/postgres-data:/var/lib/postgresql/data
+    ports:
+      - 54328:5432
+    restart: always
+    networks:
+      - nest-saga
+networks:
+  nest-saga:
+    external: true

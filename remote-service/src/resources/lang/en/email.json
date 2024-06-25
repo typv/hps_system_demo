@@ -1,0 +1,45 @@
+{
+    "reset_password": {
+        "subject": "Tripvacay: Reset Password"
+    },
+    "verify_signup": {
+        "subject": "Email Verification"
+    },
+    "welcome": {
+        "subject": "Welcome to Tripvacay"
+    },
+    "register_hotel": {
+        "subject": "Register completed"
+    },
+    "verify_2fa": {
+        "subject": "2-Step Verification"
+    },
+    "turn_on_2fa": {
+        "subject": "2-Step Verification"
+    },
+    "booking": {
+        "success_subject": "Thanks! Your booking is confirmed at {propertyName}",
+        "cancel_subject": "Booking cancelled for {propertyName}",
+        "breakfast": "breakfast",
+        "dinner": "dinner",
+        "lunch":  "lunch",
+        "adults": "adults",
+        "adult": "adult",
+        "children": "children",
+        "room": "room",
+        "rooms": "rooms",
+        "night": "night",
+        "nights": "nights",
+        "non_refundable": "Non-refundable",
+        "free_cancellation": "Free-Cancellation",
+        "free_cancellation_until": "Free-Cancellation until {date}",
+        "partially_refundable": "Partially refundable"
+    },
+    "subscription": {
+        "success_subject": "Successfully subscribed to Tripvacay!",
+        "cancel_subject": "Subscription on Tripvacay has been canceled"
+    },
+    "reward": {
+        "subject": "Referrals Rewards"
+    }
+}

@@ -1,0 +1,39 @@
+version: '3'
+services:
+  node:
+    image: node:20.12.1-alpine
+    container_name: saga_remote_node_local
+    tty: true
+    volumes:
+      - ./:/work
+    ports:
+      - 30180:${APP_PORT}
+    environment:
+      - HOST=0.0.0.0
+    working_dir: /work
+    networks:
+      - nest-saga
+  redis:
+    image: redis:latest
+    container_name: saga_redis_local
+    ports:
+      - 63798:6379
+    networks:
+      - nest-saga
+    restart: always
+  rabbitmq:
+    image: rabbitmq:3.12-management-alpine
+    container_name: saga_rabbitmq_local
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+    ports:
+      - 56728:5672
+      - 15678:15672
+    networks:
+      - nest-saga
+    restart: always
+
+networks:
+  nest-saga:
+    external: true

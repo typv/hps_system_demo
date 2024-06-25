@@ -1,0 +1,5 @@
+export const serviceName = {
+  USER: 'USER_SERVICE',
+  ORDER: 'ORDER_SERVICE',
+  SAGA_ORCHESTRATOR: 'SAGA_ORCHESTRATOR',
+};

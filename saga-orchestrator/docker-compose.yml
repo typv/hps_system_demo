@@ -1,0 +1,14 @@
+version: '3'
+services:
+  node:
+    image: node:20.12.1-alpine
+    container_name: saga_orchestrator_node_local
+    tty: true
+    volumes:
+      - ./:/work
+    working_dir: /work
+    networks:
+      - nest-saga
+networks:
+  nest-saga:
+    external: true
