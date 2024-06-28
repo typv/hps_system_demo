@@ -3,10 +3,11 @@ import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
-  Entity,
+  Entity, OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Wallet } from "./wallet.entity";
 
 export const TableName = 'users';
 
@@ -16,27 +17,14 @@ export class User {
   id: number;
 
   @Column()
-  uid: string;
-
-  @Column()
   email: string;
-
-  @Column()
-  avatar: string;
 
   @Column()
   @Exclude()
   password: string;
 
-  @CreateDateColumn()
-  createdAt: string;
-
-  @UpdateDateColumn()
-  updatedAt: string;
-
-  @Exclude()
-  @DeleteDateColumn()
-  deletedAt: string;
+  @OneToMany(() => Wallet, (wallet) => wallet.user)
+  wallets: Wallet[];
 
   constructor(partial: Partial<User>) {
     Object.assign(this, partial);

@@ -11,7 +11,7 @@ export class CreateUserProfileHandle implements ICommandHandler<CreateUserProfil
 
   async execute(command: CreateUserProfileCommand) {
     const { id, avatar } = command;
-    await this.userRepo.update({ id }, { avatar });
+    // await this.userRepo.update({ id }, { avatar });
 
     return { avatar };
   }

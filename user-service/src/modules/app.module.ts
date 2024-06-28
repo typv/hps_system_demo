@@ -16,6 +16,7 @@ import s3Configuration from 'src/config/s3.config';
 import { APP_FILTER } from "@nestjs/core";
 import { AllRpcExceptionFilter } from "../exeptions/rpc-exception.filter";
 import { TypeormExceptionFilter } from "../exeptions/typeorm-exception.filter";
+import { RemittanceModule } from './remittance/remittance.module';
 
 const logHelper = LogHelper.getInstance();
 
@@ -53,6 +54,7 @@ const logHelper = LogHelper.getInstance();
       inject: [ConfigService],
     }),
     UserModule,
+    RemittanceModule,
   ],
   controllers: [AppController],
   providers: [

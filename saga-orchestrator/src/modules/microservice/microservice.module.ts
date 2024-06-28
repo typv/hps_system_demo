@@ -23,10 +23,19 @@ import { serviceName } from "./microservice.constant";
       },
       inject: [MicroserviceHelper],
     },
+    {
+      provide: serviceName.NOTIFIER,
+      useFactory: (msHelper: MicroserviceHelper) => {
+        const tokenServiceOptions = msHelper.createConfigRMQ(serviceName.NOTIFIER);
+        return ClientProxyFactory.create(tokenServiceOptions);
+      },
+      inject: [MicroserviceHelper],
+    },
   ],
   exports: [
     serviceName.USER,
     serviceName.ORDER,
+    serviceName.NOTIFIER,
   ],
 })
 export class MicroserviceModule {}

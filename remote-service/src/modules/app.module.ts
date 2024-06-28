@@ -17,6 +17,7 @@ import { UserModule } from './user/user.module';
 import { RecordBuilderModule } from "./record-builder/record-builder.module";
 import { APP_INTERCEPTOR } from "@nestjs/core";
 import { ResponseInterceptor } from "../interceptors/response.interceptor";
+import { RemittanceModule } from './remittance/remittance.module';
 
 const logHelper = LogHelper.getInstance();
 
@@ -57,6 +58,7 @@ const logHelper = LogHelper.getInstance();
     MicroserviceModule,
     UserModule,
     RecordBuilderModule,
+    RemittanceModule,
   ],
   controllers: [AppController],
   providers: [
