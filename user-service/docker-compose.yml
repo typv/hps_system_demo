@@ -27,6 +27,20 @@ services:
     restart: always
     networks:
       - nest-saga
+#  slaveDB:
+#    image: postgres:14
+#    container_name: saga_user_postgres_slave_local
+#    environment:
+#      - POSTGRES_USER=${DB_USERNAME}
+#      - POSTGRES_DB=${DB_DATABASE}
+#      - POSTGRES_PASSWORD=${DB_PASSWORD}
+#    volumes:
+#      - ./docker/postgres-data-slave:/var/lib/postgresql/data
+#    ports:
+#      - 54338:5432
+#    restart: always
+#    networks:
+#      - nest-saga
 networks:
   nest-saga:
     external: true

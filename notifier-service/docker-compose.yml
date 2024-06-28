@@ -1,0 +1,16 @@
+version: '3'
+services:
+  node:
+    image: node:20.12.1-alpine
+    container_name: saga_notifier_node_local
+    tty: true
+    volumes:
+      - ./:/work
+    working_dir: /work
+    networks:
+      - nest-saga
+    ports:
+      - 30182:${APP_PORT}
+networks:
+  nest-saga:
+    external: true

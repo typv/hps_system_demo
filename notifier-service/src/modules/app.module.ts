@@ -9,14 +9,11 @@ import { LogHelper } from "../app/helpers/log.helper";
 import {ConfigModule, ConfigService} from '@nestjs/config';
 import 'winston-daily-rotate-file';
 import jwtConfiguration from 'src/config/jwt.config';
-import { TypeOrmModule } from "@nestjs/typeorm";
-import { UserModule } from './user/user.module';
 import s3Configuration from 'src/config/s3.config';
 import { APP_FILTER } from "@nestjs/core";
 import { AllRpcExceptionFilter } from "../exeptions/rpc-exception.filter";
-import { RecordBuilderModule } from "./record-builder/record-builder.module";
-import { MicroserviceModule } from "./microservice/microservice.module";
 import { RemittanceModule } from './remittance/remittance.module';
+import { EventModule } from "./websockets/events/event.module";
 
 const logHelper = LogHelper.getInstance();
 
@@ -52,10 +49,8 @@ const logHelper = LogHelper.getInstance();
       }),
       inject: [ConfigService],
     }),
-    UserModule,
-    RecordBuilderModule,
-    MicroserviceModule,
     RemittanceModule,
+    EventModule,
   ],
   controllers: [AppController],
   providers: [

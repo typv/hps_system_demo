@@ -7,6 +7,7 @@ import { CqrsModule } from "@nestjs/cqrs";
 import { CreateUserHandle } from "./commands/handlers/create-user.handle";
 import { CreateUserProfileHandle } from "./commands/handlers/create-user-profile.handle";
 import { DeleteUserHandle } from "./commands/handlers/delete-user.handle";
+import { FindUserHandler } from "./queries/handlers/find-user.handler";
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { DeleteUserHandle } from "./commands/handlers/delete-user.handle";
     CreateUserHandle,
     CreateUserProfileHandle,
     DeleteUserHandle,
+    FindUserHandler,
   ],
 })
 export class UserModule {}
