@@ -9,6 +9,8 @@ import { FindTransactionQuery } from "./queries/find-transaction.query";
 import { CompleteTransactionCommand } from "./commands/complete-transaction.command";
 import { DeleteTransactionCommand } from "./commands/delete-transaction.command";
 import { FindUserQuery } from "../user/queries/find-user.query";
+import { TransactionListDto } from "./dto/transaction-list.dto";
+import { TransactionListQuery } from "./queries/transaction-list.query";
 
 @Injectable()
 export class RemittanceService extends BaseService {
@@ -40,7 +42,6 @@ export class RemittanceService extends BaseService {
     const completed = await this.commandBus.execute(
       new CompleteTransactionCommand(transaction, depositWallet, destinationWallet)
     );
-    console.log("completed: ", completed);
 
     return {
       ...completed,
@@ -55,5 +56,9 @@ export class RemittanceService extends BaseService {
     );
 
     return true;
+  }
+
+  async transactionList(params: TransactionListDto) {
+    return await this.queryBus.execute(new TransactionListQuery(params));
   }
 }

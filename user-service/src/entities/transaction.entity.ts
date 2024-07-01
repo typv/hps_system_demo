@@ -28,6 +28,9 @@ export class Transaction {
   @Column()
   status: string;
 
+  @Column()
+  transactionDate: string;
+
   @Column({ type: 'jsonb' })
   remittanceMetadata: {
     depositBalanceBefore: number,
