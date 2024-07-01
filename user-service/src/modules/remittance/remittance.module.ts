@@ -12,6 +12,7 @@ import { FindTransactionHandler } from "./queries/handlers/find-transaction.hand
 import { CompleteTransactionHandle } from "./commands/handlers/complete-transaction.handle";
 import { DeleteTransactionHandle } from "./commands/handlers/delete-transaction.handle";
 import { UserModule } from "../user/user.module";
+import { TransactionListHandle } from "./queries/handlers/transaction-list.handle";
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { UserModule } from "../user/user.module";
     FindTransactionHandler,
     CompleteTransactionHandle,
     DeleteTransactionHandle,
+    TransactionListHandle,
   ],
 })
 export class RemittanceModule {}
